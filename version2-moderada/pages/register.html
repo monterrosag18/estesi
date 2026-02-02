@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUDZASO - Register</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <!-- 
+        📝 PÁGINA DE REGISTRO - CRUDZASO v1 (HUMANIZADA)
+        
+        ¡Bienvenido a la página de registro! 🎉
+        
+        Aquí es donde los nuevos usuarios crean su cuenta para unirse
+        a nuestra comunidad académica. El proceso debe ser:
+        
+        ✅ Simple y directo
+        ✅ Seguro (validación de contraseñas)
+        ✅ Intuitivo (campos claramente etiquetados)
+        ✅ Rápido (mínimos campos requeridos)
+        
+        Una vez registrados, los usuarios pueden acceder inmediatamente
+        a todas las funcionalidades de CRUDZASO.
+    -->
+</head>
+<body>
+    <!-- 
+        CONTENEDOR PRINCIPAL DE REGISTRO
+        
+        Estructura similar al login para mantener consistencia visual,
+        pero con campos adicionales para capturar información del usuario.
+    -->
+    <div class="register-container">
+        <!-- 
+            BRANDING CONSISTENTE
+            
+            Mismo logo y estilo que en el login para reforzar
+            la identidad visual de CRUDZASO.
+        -->
+        <div class="logo-section">
+            <div class="logo-icon">📚</div>
+            <h1 class="app-title">CRUDZASO</h1>
+        </div>
+        
+        <!-- 
+            MENSAJE DE BIENVENIDA PARA NUEVOS USUARIOS
+            
+            Invitación cálida a unirse a la plataforma académica.
+            El tono debe ser acogedor y motivador.
+        -->
+        <div class="welcome-section">
+            <h2>Create account</h2>
+            <p>Join the academic performance platform today</p>
+        </div>
+        
+        <!-- 
+            FORMULARIO DE REGISTRO COMPLETO
+            
+            Captura la información esencial del usuario:
+            - Nombre completo (para personalización)
+            - Email (identificación única y comunicación)
+            - Contraseña segura (con confirmación)
+            
+            La validación incluye:
+            ✓ Formato de email válido
+            ✓ Contraseñas coincidentes
+            ✓ Longitud mínima de contraseña
+            ✓ Caracteres especiales recomendados
+        -->
+        <form id="register-form" class="auth-form">
+            <!-- Campo para nombre completo -->
+            <div class="form-group">
+                <label for="register-name">Full Name</label>
+                <input 
+                    type="text" 
+                    id="register-name" 
+                    placeholder="John Doe"
+                    required
+                    minlength="2"
+                    autocomplete="name"
+                >
+            </div>
+            
+            <!-- Campo para dirección de email -->
+            <div class="form-group">
+                <label for="register-email">Email address</label>
+                <input 
+                    type="email" 
+                    id="register-email" 
+                    placeholder="student@university.edu"
+                    required
+                    autocomplete="email"
+                >
+            </div>
+            
+            <!-- Campo para contraseña nueva -->
+            <div class="form-group">
+                <label for="register-password">Password</label>
+                <div class="password-input-container">
+                    <input 
+                        type="password" 
+                        id="register-password" 
+                        placeholder="Create a password"
+                        required
+                        minlength="6"
+                        autocomplete="new-password"
+                    >
+                    <!-- Toggle para mostrar contraseña -->
+                    <button type="button" class="toggle-password" onclick="togglePassword('register-password')">
+                        👁️
+                    </button>
+                </div>
+                <!-- Indicador de fuerza de contraseña (mejora UX) -->
+                <div class="password-strength" id="password-strength"></div>
+            </div>
+            
+            <!-- Campo para confirmar contraseña -->
+            <div class="form-group">
+                <label for="register-confirm">Confirm Password</label>
+                <div class="password-input-container">
+                    <input 
+                        type="password" 
+                        id="register-confirm" 
+                        placeholder="Confirm password"
+                        required
+                        autocomplete="new-password"
+                    >
+                    <button type="button" class="toggle-password" onclick="togglePassword('register-confirm')">
+                        👁️
+                    </button>
+                </div>
+                <!-- Indicador visual de coincidencia -->
+                <div class="password-match" id="password-match"></div>
+            </div>
+            
+            <!-- 
+                Botón de registro
+                
+                Color azul prominente para acción principal.
+                Se activa solo cuando todos los campos son válidos.
+            -->
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        
+        <!-- 
+            NAVEGACIÓN AL LOGIN
+            
+            Para usuarios que ya tienen cuenta.
+            Link directo de regreso al login.
+        -->
+        <div class="auth-footer">
+            <p>Already have an account? <a href="../index.html">Sign in</a></p>
+        </div>
+    </div>
+    
+    <!-- 
+        JAVASCRIPT PARA FUNCIONALIDAD DE REGISTRO
+        
+        Incluye:
+        - Validación en tiempo real de campos
+        - Verificación de fuerza de contraseña
+        - Confirmación de coincidencia de contraseñas
+        - Envío de datos al servidor (simulado)
+        - Redirección automática después del registro exitoso
+        
+        Las validaciones del frontend son para UX, pero siempre
+        se deben validar también en el backend por seguridad.
+    -->
+    <script src="../assets/js/register.js"></script>
+</body>
+</html>
