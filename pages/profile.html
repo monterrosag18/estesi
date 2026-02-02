@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUDZASO - My Profile</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <!-- 
+        👤 PERFIL DE USUARIO - CRUDZASO v1 (HUMANIZADA)
+        
+        ¡El espacio personal de cada usuario en CRUDZASO! 🏠✨
+        
+        Esta página es como el "hogar" digital del usuario dentro de la plataforma.
+        Aquí pueden:
+        
+        👀 Ver su información personal completa
+        ✏️ Editar sus datos de perfil
+        📊 Revisar sus estadísticas académicas
+        🎖️ Ver sus logros y progreso
+        ⚙️ Configurar preferencias de la cuenta
+        📈 Analizar su rendimiento histórico
+        
+        El diseño está inspirado en el Figma original, con un layout
+        de dos columnas que separa la información visual (avatar, stats)
+        de la información detallada (datos personales, configuración).
+        
+        Filosofía: "El perfil es el reflejo digital del estudiante"
+        
+        Todo aquí debe inspirar confianza, mostrar progreso y
+        facilitar la personalización de la experiencia académica.
+    -->
+</head>
+<body>
+    <!-- Navegación consistente -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="logo-icon">📚</div>
+            <span class="app-title">CRUDZASO</span>
+        </div>
+        
+        <div class="nav-links">
+            <a href="dashboard.html" class="nav-link">🏠 Dashboard</a>
+        </div>
+        
+        <!-- 
+            El perfil del usuario en la navbar debe reflejar
+            la información que se muestra en esta página
+        -->
+        <div class="user-profile">
+            <div class="user-info">
+                <span class="user-name">Dr. Sarah J.</span>
+                <span class="user-role">Admin</span>
+            </div>
+            <div class="user-avatar">👤</div>
+        </div>
+    </nav>
+    
+    <main class="main-content">
+        <!-- Navegación lateral con perfil activo -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link">📊 Dashboard</a>
+                <a href="tasks.html" class="sidebar-link">📋 My Tasks</a>
+                <a href="profile.html" class="sidebar-link active">👤 Profile</a>
+            </nav>
+        </aside>
+        
+        <div class="content-area">
+            <!-- 
+                CONTENEDOR PRINCIPAL DEL PERFIL
+                
+                Layout de dos columnas para organizar la información
+                de manera lógica y visualmente atractiva.
+            -->
+            <div class="profile-container">
+                <h1>My Profile</h1>
+                
+                <div class="profile-content">
+                    <!-- 
+                        COLUMNA IZQUIERDA - INFORMACIÓN VISUAL
+                        
+                        Esta sección contiene los elementos más visuales:
+                        - Avatar grande del usuario
+                        - Nombre y título/rol
+                        - Badge de estado (Admin, Student, etc.)
+                        - Información de contacto principal
+                        - Estadísticas rápidas y logros
+                        
+                        Es como una "tarjeta de presentación" digital.
+                    -->
+                    <div class="profile-sidebar">
+                        <div class="profile-card">
+                            <!-- 
+                                Avatar principal del usuario
+                                
+                                En una implementación real, esto sería una imagen
+                                que el usuario puede subir y cambiar.
+                            -->
+                            <div class="profile-avatar-large">👩‍🏫</div>
+                            
+                            <!-- 
+                                Nombre completo del usuario
+                                
+                                Debe ser prominente y fácil de leer.
+                                Incluye títulos académicos si los tiene.
+                            -->
+                            <h2>Dr. Sarah Jenkins</h2>
+                            
+                            <!-- 
+                                Badge de rol/estado
+                                
+                                Indica el tipo de usuario o su rol en la institución.
+                                Puede incluir: Student, Teacher, Admin, Staff, etc.
+                            -->
+                            <div class="profile-badge">System Admin</div>
+                            
+                            <!-- 
+                                Información de contacto principal
+                                
+                                Solo la información más importante y frecuentemente usada.
+                            -->
+                            <div class="profile-contact">
+                                ✉️ sarah.jenkins@crudzaso.edu
+                            </div>
+                            
+                            <!-- 
+                                ESTADÍSTICAS DE RENDIMIENTO
+                                
+                                Métricas clave del usuario presentadas de forma atractiva.
+                                En este caso, muestra el total de tareas gestionadas.
+                                
+                                Se pueden agregar más métricas como:
+                                - Tareas completadas a tiempo
+                                - Promedio de calificaciones
+                                - Días activos consecutivos
+                                - Logros desbloqueados
+                            -->
+                            <div class="profile-stats">
+                                <div class="profile-stat">
+                                    <div class="stat-number">154</div>
+                                    <div class="stat-label">Tasks Managed</div>
+                                </div>
+                                <!-- Aquí se pueden agregar más estadísticas -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 
+                        COLUMNA DERECHA - INFORMACIÓN DETALLADA
+                        
+                        Contiene toda la información personal organizada
+                        en secciones lógicas y fáciles de escanear.
+                    -->
+                    <div class="profile-main">
+                        <!-- 
+                            SECCIÓN DE INFORMACIÓN PERSONAL
+                            
+                            Todos los datos personales del usuario organizados
+                            en una cuadrícula limpia y fácil de leer.
+                        -->
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h3>Personal Information</h3>
+                                <!-- 
+                                    Botón para editar perfil
+                                    
+                                    Permite al usuario actualizar su información.
+                                    En una implementación real, esto abriría un
+                                    modal o formulario de edición.
+                                -->
+                                <button class="btn btn-outline" onclick="editProfile()">✏️ Edit Profile</button>
+                            </div>
+                            
+                            <!-- 
+                                GRID DE INFORMACIÓN PERSONAL
+                                
+                                Organizada en pares etiqueta-valor para
+                                fácil lectura y escaneado visual.
+                                
+                                La información incluye tanto datos básicos
+                                como información institucional específica.
+                            -->
+                            <div class="profile-info-grid">
+                                <!-- Nombre completo -->
+                                <div class="info-item">
+                                    <div class="info-label">Full Name</div>
+                                    <div class="info-value">Sarah Jenkins</div>
+                                </div>
+                                
+                                <!-- ID de empleado/estudiante -->
+                                <div class="info-item">
+                                    <div class="info-label">Employee ID</div>
+                                    <div class="info-value">CZ-882103</div>
+                                </div>
+                                
+                                <!-- Teléfono de contacto -->
+                                <div class="info-item">
+                                    <div class="info-label">Phone</div>
+                                    <div class="info-value">+1 (555) 123-4567</div>
+                                </div>
+                                
+                                <!-- 
+                                    Departamento académico
+                                    
+                                    Con badge de color para fácil identificación visual.
+                                    Cada departamento puede tener su propio color.
+                                -->
+                                <div class="info-item">
+                                    <div class="info-label">Department</div>
+                                    <div class="info-value">
+                                        <span class="department-badge">Computer Science</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Nivel de rol o posición -->
+                                <div class="info-item">
+                                    <div class="info-label">Role Level</div>
+                                    <div class="info-value">Senior Administrator</div>
+                                </div>
+                                
+                                <!-- 
+                                    Fecha de ingreso a la institución
+                                    
+                                    Útil para calcular antigüedad y beneficios.
+                                -->
+                                <div class="info-item">
+                                    <div class="info-label">Join Date</div>
+                                    <div class="info-value">September 14, 2020</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 
+                            SECCIÓN DE PREFERENCIAS (FUTURA EXPANSIÓN)
+                            
+                            Aquí se pueden agregar configuraciones como:
+                            - Preferencias de notificación
+                            - Tema de la interfaz (claro/oscuro)
+                            - Idioma preferido
+                            - Configuración de privacidad
+                            - Frecuencia de recordatorios
+                        -->
+                        <!-- 
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h3>Account Preferences</h3>
+                            </div>
+                            ... configuraciones ...
+                        </div>
+                        -->
+                        
+                        <!-- 
+                            SECCIÓN DE ACTIVIDAD RECIENTE (FUTURA EXPANSIÓN)
+                            
+                            Timeline de las acciones más recientes del usuario:
+                            - Tareas creadas/completadas
+                            - Cambios de perfil
+                            - Logros desbloqueados
+                            - Interacciones con otros usuarios
+                        -->
+                        <!-- 
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h3>Recent Activity</h3>
+                            </div>
+                            ... timeline de actividad ...
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 
+        JAVASCRIPT PARA FUNCIONALIDAD DEL PERFIL
+        
+        Este script maneja:
+        
+        👁️ VISUALIZACIÓN DE DATOS:
+        - Carga de información del usuario desde localStorage
+        - Formateo y presentación de datos
+        - Cálculo de estadísticas dinámicas
+        - Actualización de elementos visuales
+        
+        ✏️ EDICIÓN DE PERFIL:
+        - Modal o formulario para editar información
+        - Validación de campos (email, teléfono, etc.)
+        - Guardado de cambios
+        - Actualización en tiempo real de la vista
+        
+        📊 ESTADÍSTICAS AVANZADAS:
+        - Cálculo de métricas de rendimiento
+        - Generación de gráficos de progreso
+        - Comparación con períodos anteriores
+        - Análisis de patrones de uso
+        
+        🔐 SEGURIDAD Y PRIVACIDAD:
+        - Validación de permisos para editar
+        - Enmascaramiento de información sensible
+        - Registro de cambios en el perfil
+        - Configuración de visibilidad de datos
+        
+        La experiencia debe ser personalizada y reflejar
+        el progreso académico del usuario de manera motivadora.
+    -->
+    <script src="../assets/js/profile.js"></script>
+</body>
+</html>

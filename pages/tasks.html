@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUDZASO - Task Management</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <!-- 
+        📋 GESTIÓN COMPLETA DE TAREAS - CRUDZASO v1 (HUMANIZADA)
+        
+        ¡Aquí es donde ocurre la magia del CRUD! ✨
+        
+        Esta página es el núcleo operativo de CRUDZASO donde los usuarios:
+        
+        📝 Crean nuevas tareas académicas
+        👀 Ven todas sus tareas en detalle
+        ✏️ Editan información de tareas existentes
+        🗑️ Eliminan tareas completadas o canceladas
+        🔍 Buscan tareas específicas
+        🏷️ Filtran por categoría, estado, prioridad
+        📊 Monitorean su progreso académico
+        
+        La interfaz está diseñada para ser productiva y eficiente,
+        permitiendo gestionar grandes cantidades de tareas académicas
+        sin abrumar al usuario.
+        
+        ¡Es la página más funcional de toda la aplicación!
+    -->
+</head>
+<body>
+    <!-- Navegación superior idéntica para consistencia -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="logo-icon">📚</div>
+            <span class="app-title">CRUDZASO</span>
+        </div>
+        
+        <div class="nav-links">
+            <a href="dashboard.html" class="nav-link">🏠 Dashboard</a>
+        </div>
+        
+        <div class="user-profile" onclick="goToProfile()">
+            <div class="user-info">
+                <span class="user-name">Alex Morgan</span>
+                <span class="user-role">Product Designer</span>
+            </div>
+            <div class="user-avatar">👤</div>
+        </div>
+    </nav>
+    
+    <main class="main-content">
+        <!-- Navegación lateral con item activo actualizado -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link">📊 Dashboard</a>
+                <a href="tasks.html" class="sidebar-link active">📋 My Tasks</a>
+                <a href="profile.html" class="sidebar-link">👤 Profile</a>
+            </nav>
+        </aside>
+        
+        <div class="content-area">
+            <!-- 
+                ENCABEZADO DE GESTIÓN DE TAREAS
+                
+                Título descriptivo y botón para crear nuevas tareas.
+                El copy es más específico que en el dashboard.
+            -->
+            <div class="task-management-header">
+                <div class="section-info">
+                    <h1>Task Management</h1>
+                    <p>View, edit, and organize all academic tasks in one place.</p>
+                </div>
+                <button class="btn btn-primary" onclick="goToCreateTask()">➕ New Task</button>
+            </div>
+            
+            <!-- 
+                ESTADÍSTICAS RESUMIDAS
+                
+                Versión compacta de las métricas para contexto rápido.
+                Los números son consistentes con el dashboard principal.
+            -->
+            <div class="summary-stats">
+                <div class="summary-card">
+                    <div class="summary-content">
+                        <div class="summary-number">128</div>
+                        <div class="summary-label">Total Tasks</div>
+                    </div>
+                    <div class="summary-icon">📚</div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="summary-content">
+                        <div class="summary-number">12</div>
+                        <div class="summary-label">In Progress</div>
+                    </div>
+                    <div class="summary-icon">⚡</div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="summary-content">
+                        <div class="summary-number">84</div>
+                        <div class="summary-label">Completed</div>
+                    </div>
+                    <div class="summary-icon">✅</div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="summary-content">
+                        <div class="summary-number">32</div>
+                        <div class="summary-label">Pending Review</div>
+                    </div>
+                    <div class="summary-icon">👁️</div>
+                </div>
+            </div>
+            
+            <!-- 
+                HERRAMIENTAS DE BÚSQUEDA Y FILTRADO
+                
+                Funcionalidades esenciales para manejar grandes listas de tareas:
+                
+                🔍 Búsqueda en tiempo real por título, ID o tags
+                🏷️ Filtros por categoría académica
+                📊 Filtros por estado y prioridad
+                📅 Filtros por fecha límite
+                
+                La búsqueda es instantánea (sin necesidad de presionar Enter)
+                y los filtros se pueden combinar para búsquedas muy específicas.
+            -->
+            <div class="search-and-filters">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="task-search" 
+                        placeholder="Search by title, ID, or tag..."
+                        oninput="searchTasks()"
+                    >
+                    <span class="search-icon">🔍</span>
+                </div>
+            </div>
+            
+            <!-- 
+                LISTA DETALLADA DE TODAS LAS TAREAS
+                
+                Esta es la vista más completa de tareas en toda la aplicación.
+                Cada tarea se muestra como una tarjeta con toda su información:
+                
+                📌 Título y descripción
+                🏷️ Categoría académica (Mathematics, Physics, etc.)
+                📊 Estado actual (Pending, In Progress, Completed)
+                🚨 Nivel de prioridad (Low, Medium, High)
+                📅 Fecha límite
+                👤 Asignado a (para trabajos en grupo)
+                ⚙️ Acciones disponibles (editar, eliminar, cambiar estado)
+                
+                El diseño es card-based para mejor escaneabilidad visual
+                y cada tarjeta incluye acciones contextuales.
+            -->
+            <div class="detailed-tasks-section">
+                <div class="task-list" id="detailed-task-list">
+                    <!-- 
+                        Las tareas se cargan dinámicamente aquí.
+                        
+                        Cada tarea tendrá la estructura:
+                        - Header con título, ID y acciones
+                        - Metadata con categoría, prioridad, estado
+                        - Descripción (si existe)
+                        - Fecha límite y assignee
+                        
+                        JavaScript se encarga de generar estas tarjetas
+                        basándose en los datos del usuario.
+                    -->
+                </div>
+                
+                <!-- 
+                    PAGINACIÓN
+                    
+                    Para listas muy largas de tareas, implementamos paginación
+                    para mantener el rendimiento y la usabilidad.
+                    
+                    Muestra:
+                    - Información de registros ("Showing X to Y of Z results")
+                    - Controles de navegación (anterior/siguiente)
+                    - Números de página (para listas muy largas)
+                -->
+                <div class="pagination">
+                    <span class="pagination-info">Showing <span id="showing-from">1</span> to <span id="showing-to">5</span> of <span id="total-results">128</span> results</span>
+                    <div class="pagination-controls">
+                        <button class="pagination-btn" onclick="previousPage()" disabled>‹</button>
+                        <button class="pagination-btn" onclick="nextPage()">›</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 
+        JAVASCRIPT PARA GESTIÓN COMPLETA DE TAREAS
+        
+        Este es el archivo JS más complejo de toda la aplicación porque maneja
+        todas las operaciones CRUD y funcionalidades avanzadas:
+        
+        📝 CREATE - Crear nuevas tareas
+        👁️ READ - Mostrar y filtrar tareas existentes  
+        ✏️ UPDATE - Editar tareas existentes
+        🗑️ DELETE - Eliminar tareas
+        
+        Funcionalidades adicionales:
+        - Búsqueda en tiempo real
+        - Filtrado por múltiples criterios
+        - Paginación de resultados
+        - Ordenamiento por columnas
+        - Acciones en lote (seleccionar múltiples tareas)
+        - Exportación de datos
+        - Importación desde archivos CSV
+        
+        El código está organizado en funciones modulares para
+        facilitar el mantenimiento y la extensión de funcionalidades.
+    -->
+    <script src="../assets/js/tasks.js"></script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUDZASO - Create Task</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <!-- 
+        ➕ CREAR/EDITAR TAREA - CRUDZASO v1 (HUMANIZADA)
+        
+        ¡Aquí es donde nacen las tareas académicas! 🎓✨
+        
+        Esta página es fundamental para el éxito de los estudiantes porque
+        les permite definir claramente sus objetivos académicos.
+        
+        Una tarea bien definida incluye:
+        📝 Título claro y descriptivo
+        🏷️ Categoría académica apropiada
+        🚨 Nivel de prioridad realista
+        📅 Fecha límite específica
+        📖 Descripción detallada del trabajo a realizar
+        
+        El formulario está diseñado para ser:
+        ✅ Intuitivo (campos organizados lógicamente)
+        ✅ Completo (toda la información necesaria)
+        ✅ Flexible (funciona tanto para crear como editar)
+        ✅ Validado (previene errores comunes)
+        
+        Filosofía: "Una tarea bien planificada es una tarea medio completada"
+        
+        ¡Cada tarea creada aquí es un paso hacia el éxito académico!
+    -->
+</head>
+<body>
+    <!-- Navegación consistente con el resto de la aplicación -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="logo-icon">📚</div>
+            <span class="app-title">CRUDZASO</span>
+        </div>
+        
+        <!-- 
+            Información del usuario - contexto importante
+            para saber quién está creando la tarea
+        -->
+        <div class="user-profile">
+            <div class="user-info">
+                <span class="user-name">Alex Morgan</span>
+                <span class="user-role">Admin</span>
+            </div>
+            <div class="user-avatar">👤</div>
+        </div>
+    </nav>
+    
+    <main class="main-content">
+        <!-- 
+            CONTENEDOR PRINCIPAL PARA CREAR TAREA
+            
+            Diseño centrado y enfocado para minimizar distracciones
+            y maximizar la concentración en la tarea a definir.
+        -->
+        <div class="create-task-container">
+            <!-- 
+                BREADCRUMB DE NAVEGACIÓN
+                
+                Ayuda al usuario a entender dónde está y cómo regresar.
+                Especialmente útil cuando se llega aquí desde diferentes lugares.
+            -->
+            <div class="breadcrumb">
+                <a href="tasks.html">← Back to Tasks</a>
+                <span> / <span id="breadcrumb-action">Create New</span></span>
+            </div>
+            
+            <div class="create-task-content">
+                <!-- 
+                    Título dinámico que cambia según el contexto:
+                    - "Create New Task" para tareas nuevas
+                    - "Edit Task: [Nombre]" para tareas existentes
+                -->
+                <h1 id="page-title">Create New Task</h1>
+                
+                <!-- 
+                    FORMULARIO PRINCIPAL PARA TAREAS
+                    
+                    Este formulario es el corazón de la funcionalidad CRUD.
+                    Está diseñado para ser reutilizable tanto para crear
+                    como para editar tareas existentes.
+                    
+                    Los campos están organizados en un layout lógico:
+                    1. Información básica (título)
+                    2. Clasificación (categoría, prioridad)
+                    3. Gestión (estado, fecha límite)
+                    4. Detalles (descripción completa)
+                    
+                    Cada campo tiene validación tanto visual como funcional.
+                -->
+                <form id="task-form" class="task-form">
+                    <!-- 
+                        Campo de título - El más importante
+                        
+                        Ocupa todo el ancho porque es la información más crítica.
+                        El placeholder da ejemplos de buenos títulos de tareas.
+                    -->
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="task-title">Task Title *</label>
+                            <input 
+                                type="text" 
+                                id="task-title" 
+                                placeholder="e.g., Complete Quarter 3 Report"
+                                required
+                                maxlength="100"
+                            >
+                            <!-- Contador de caracteres para ayudar al usuario -->
+                            <small class="char-counter">0/100 characters</small>
+                        </div>
+                    </div>
+                    
+                    <!-- 
+                        Fila de campos de clasificación
+                        
+                        Categoría y prioridad van juntos porque ambos
+                        ayudan a organizar y clasificar las tareas.
+                    -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-category">Category</label>
+                            <select id="task-category">
+                                <option value="">Select category...</option>
+                                <!-- 
+                                    Categorías académicas basadas en el Figma.
+                                    Estas se pueden expandir según las necesidades
+                                    de la institución educativa.
+                                -->
+                                <option value="Mathematics">📐 Mathematics</option>
+                                <option value="Physics">⚛️ Physics</option>
+                                <option value="History">📚 History</option>
+                                <option value="Computer Science">💻 Computer Science</option>
+                                <option value="Literature">📖 Literature</option>
+                                <option value="Chemistry">🧪 Chemistry</option>
+                                <option value="Biology">🧬 Biology</option>
+                                <option value="Art">🎨 Art</option>
+                                <option value="Music">🎵 Music</option>
+                                <option value="Other">📋 Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="task-priority">Priority</label>
+                            <select id="task-priority">
+                                <!-- 
+                                    Sistema de prioridades simple pero efectivo:
+                                    - Low: Tareas que pueden esperar
+                                    - Medium: Tareas regulares (default)
+                                    - High: Tareas urgentes o importantes
+                                    
+                                    Medium es el default para evitar que todo sea "urgente".
+                                -->
+                                <option value="Low">🟢 Low</option>
+                                <option value="Medium" selected>🟡 Medium</option>
+                                <option value="High">🔴 High</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- 
+                        Fila de gestión y temporalidad
+                        
+                        Estado y fecha límite están relacionados porque
+                        ambos afectan la urgencia y el seguimiento de la tarea.
+                    -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-status">Status</label>
+                            <select id="task-status">
+                                <!-- 
+                                    Estados del ciclo de vida de una tarea:
+                                    - Pending: Recién creada, no iniciada
+                                    - In Progress: Se está trabajando en ella
+                                    - Completed: Terminada exitosamente
+                                    
+                                    Para tareas nuevas, siempre empieza en "Pending".
+                                -->
+                                <option value="Pending" selected>⏳ Pending</option>
+                                <option value="In Progress">⚡ In Progress</option>
+                                <option value="Completed">✅ Completed</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="task-due-date">Due Date</label>
+                            <input 
+                                type="date" 
+                                id="task-due-date"
+                                min=""
+                            >
+                            <!-- Mensaje de ayuda contextual -->
+                            <small class="help-text">When should this task be completed?</small>
+                        </div>
+                    </div>
+                    
+                    <!-- 
+                        Campo de descripción - Información detallada
+                        
+                        Ocupa todo el ancho porque puede contener mucho texto.
+                        Es opcional pero altamente recomendado para tareas complejas.
+                    -->
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="task-description">Description</label>
+                            <textarea 
+                                id="task-description" 
+                                rows="5"
+                                placeholder="Add details about this task... What needs to be done? What are the requirements? Any specific instructions?"
+                                maxlength="500"
+                            ></textarea>
+                            <small class="char-counter">0/500 characters</small>
+                        </div>
+                    </div>
+                    
+                    <!-- 
+                        BOTONES DE ACCIÓN
+                        
+                        Siempre incluir una opción de cancelar para que los usuarios
+                        puedan salir sin guardar cambios accidentales.
+                        
+                        El botón principal cambia según el contexto:
+                        - "Save Task" para tareas nuevas
+                        - "Update Task" para tareas existentes
+                    -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="cancelTaskForm()">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">
+                            💾 Save Task
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 
+        JAVASCRIPT PARA GESTIÓN DE FORMULARIO
+        
+        Este script maneja toda la lógica del formulario:
+        
+        📝 CREAR TAREAS NUEVAS:
+        - Validación de campos requeridos
+        - Formateo de datos antes del envío
+        - Generación de ID único para la tarea
+        - Guardado en localStorage (simulando base de datos)
+        - Redirección con mensaje de éxito
+        
+        ✏️ EDITAR TAREAS EXISTENTES:
+        - Carga de datos existentes en el formulario
+        - Detección de cambios para confirmar antes de salir
+        - Actualización de datos existentes
+        - Preservación de metadatos (fecha de creación, etc.)
+        
+        🔧 FUNCIONALIDADES ADICIONALES:
+        - Auto-guardado cada 30 segundos (draft)
+        - Validación en tiempo real
+        - Contador de caracteres
+        - Prevención de pérdida accidental de datos
+        - Autocompletado basado en tareas anteriores
+        
+        La experiencia debe ser fluida y sin fricción para
+        que los usuarios se enfoquen en planificar bien sus tareas
+        en lugar de luchar con la interfaz.
+    -->
+    <script src="../assets/js/create-task.js"></script>
+</body>
+</html>

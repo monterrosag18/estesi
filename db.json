@@ -1,0 +1,248 @@
+{
+  "users": [
+    {
+      "id": "admin_001",
+      "name": "Administrator",
+      "email": "admin@crudzaso.edu",
+      "password": "admin123",
+      "role": "admin",
+      "department": "Administration",
+      "academicLevel": "Administrator",
+      "studentId": "ADMIN001",
+      "phoneNumber": "+1 (555) 000-0001",
+      "bio": "System administrator with full access to CRUDZASO platform management.",
+      "avatar": null,
+      "joinDate": "2024-01-01T00:00:00.000Z",
+      "lastActive": "2026-02-02T12:00:00.000Z",
+      "timezone": "America/New_York",
+      "language": "en",
+      "theme": "dark",
+      "notifications": {
+        "email": true,
+        "push": true,
+        "deadline": true,
+        "daily": true
+      }
+    },
+    {
+      "id": "user_001",
+      "name": "María García",
+      "email": "maria@university.edu",
+      "password": "12345",
+      "role": "student",
+      "department": "Computer Science",
+      "academicLevel": "Undergraduate",
+      "studentId": "STU001",
+      "phoneNumber": "+1 (555) 123-4567",
+      "bio": "Computer Science student passionate about web development and artificial intelligence.",
+      "avatar": null,
+      "joinDate": "2024-09-01T00:00:00.000Z",
+      "lastActive": "2026-02-02T10:30:00.000Z",
+      "timezone": "America/New_York",
+      "language": "en",
+      "theme": "light",
+      "notifications": {
+        "email": true,
+        "push": true,
+        "deadline": true,
+        "daily": false
+      }
+    },
+    {
+      "id": "user_002", 
+      "name": "Juan Pérez",
+      "email": "juan@university.edu",
+      "password": "password",
+      "role": "student",
+      "department": "Mathematics",
+      "academicLevel": "Graduate",
+      "studentId": "STU002",
+      "phoneNumber": "+1 (555) 987-6543",
+      "bio": "Mathematics graduate student specializing in statistical analysis and data science.",
+      "avatar": null,
+      "joinDate": "2024-08-15T00:00:00.000Z",
+      "lastActive": "2026-02-01T16:45:00.000Z",
+      "timezone": "America/New_York", 
+      "language": "es",
+      "theme": "dark",
+      "notifications": {
+        "email": false,
+        "push": true,
+        "deadline": true,
+        "daily": true
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task_001",
+      "title": "Complete Calculus Assignment #3",
+      "description": "Solve differential equations problems from chapter 8, including integration by parts and substitution methods.",
+      "category": "Mathematics",
+      "priority": "High",
+      "status": "In Progress",
+      "dueDate": "2026-02-10",
+      "createdAt": "2026-01-25T09:00:00.000Z",
+      "updatedAt": "2026-02-01T14:30:00.000Z",
+      "estimatedHours": 4,
+      "actualHours": 2,
+      "assignee": "María García",
+      "tags": ["calculus", "differential-equations", "homework"],
+      "difficulty": "Hard",
+      "userId": "user_001"
+    },
+    {
+      "id": "task_002",
+      "title": "Physics Lab Report - Quantum Mechanics",
+      "description": "Write comprehensive lab report on quantum tunneling experiment, including data analysis and theoretical background.",
+      "category": "Physics",
+      "priority": "Medium",
+      "status": "Pending",
+      "dueDate": "2026-02-15",
+      "createdAt": "2026-01-28T10:15:00.000Z",
+      "updatedAt": "2026-01-28T10:15:00.000Z",
+      "estimatedHours": 6,
+      "actualHours": 0,
+      "assignee": "María García",
+      "tags": ["physics", "lab-report", "quantum"],
+      "difficulty": "Medium",
+      "userId": "user_001"
+    },
+    {
+      "id": "task_003",
+      "title": "Research Paper on Machine Learning",
+      "description": "Write 15-page research paper on deep learning applications in natural language processing.",
+      "category": "Computer Science",
+      "priority": "High",
+      "status": "Completed",
+      "dueDate": "2026-01-30",
+      "createdAt": "2026-01-10T08:00:00.000Z",
+      "updatedAt": "2026-01-29T22:45:00.000Z",
+      "estimatedHours": 20,
+      "actualHours": 18,
+      "assignee": "María García",
+      "tags": ["research", "machine-learning", "nlp"],
+      "difficulty": "Hard",
+      "userId": "user_001"
+    },
+    {
+      "id": "task_004",
+      "title": "Statistics Final Project",
+      "description": "Complete statistical analysis of dataset using R programming language and create presentation.",
+      "category": "Mathematics",
+      "priority": "High",
+      "status": "In Progress",
+      "dueDate": "2026-02-20",
+      "createdAt": "2026-01-15T11:30:00.000Z",
+      "updatedAt": "2026-02-01T09:15:00.000Z",
+      "estimatedHours": 15,
+      "actualHours": 8,
+      "assignee": "Juan Pérez",
+      "tags": ["statistics", "r-programming", "final-project"],
+      "difficulty": "Medium",
+      "userId": "user_002"
+    },
+    {
+      "id": "task_005",
+      "title": "Literature Essay - Shakespeare Analysis",
+      "description": "Analyze themes of power and corruption in Macbeth, focusing on character development and literary techniques.",
+      "category": "Literature",
+      "priority": "Medium",
+      "status": "Pending",
+      "dueDate": "2026-02-12",
+      "createdAt": "2026-01-30T13:20:00.000Z",
+      "updatedAt": "2026-01-30T13:20:00.000Z",
+      "estimatedHours": 8,
+      "actualHours": 0,
+      "assignee": "Juan Pérez",
+      "tags": ["literature", "shakespeare", "essay"],
+      "difficulty": "Medium",
+      "userId": "user_002"
+    },
+    {
+      "id": "task_006",
+      "title": "Chemistry Lab Preparation",
+      "description": "Read lab manual and prepare materials list for organic synthesis experiment next week.",
+      "category": "Chemistry",
+      "priority": "Low",
+      "status": "Completed",
+      "dueDate": "2026-02-03",
+      "createdAt": "2026-01-29T15:45:00.000Z",
+      "updatedAt": "2026-02-02T08:30:00.000Z",
+      "estimatedHours": 2,
+      "actualHours": 1.5,
+      "assignee": "María García",
+      "tags": ["chemistry", "lab-prep", "organic"],
+      "difficulty": "Easy",
+      "userId": "user_001"
+    }
+  ],
+  "categories": [
+    {
+      "id": "mathematics",
+      "name": "Mathematics",
+      "icon": "📐",
+      "color": "#6366f1",
+      "description": "Mathematical coursework and problem sets"
+    },
+    {
+      "id": "physics",
+      "name": "Physics", 
+      "icon": "⚛️",
+      "color": "#10b981",
+      "description": "Physics experiments and theoretical work"
+    },
+    {
+      "id": "computer-science",
+      "name": "Computer Science",
+      "icon": "💻", 
+      "color": "#ef4444",
+      "description": "Programming assignments and software projects"
+    },
+    {
+      "id": "literature",
+      "name": "Literature",
+      "icon": "📖",
+      "color": "#a855f7",
+      "description": "Literary analysis and creative writing"
+    },
+    {
+      "id": "chemistry",
+      "name": "Chemistry",
+      "icon": "🧪",
+      "color": "#06b6d4",
+      "description": "Laboratory work and chemical analysis"
+    },
+    {
+      "id": "biology",
+      "name": "Biology",
+      "icon": "🧬",
+      "color": "#84cc16",
+      "description": "Biological research and life sciences"
+    },
+    {
+      "id": "history",
+      "name": "History",
+      "icon": "📚",
+      "color": "#f59e0b",
+      "description": "Historical research and analysis"
+    },
+    {
+      "id": "art",
+      "name": "Art",
+      "icon": "🎨",
+      "color": "#f97316",
+      "description": "Artistic projects and creative assignments"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "session_001",
+      "userId": "user_001",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+      "createdAt": "2026-02-02T08:00:00.000Z",
+      "expiresAt": "2026-02-09T08:00:00.000Z",
+      "isActive": true
+    }
+  ]
+}

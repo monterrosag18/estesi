@@ -1,0 +1,23 @@
+{
+  "name": "crudzaso-v2-moderada",
+  "version": "1.0.0",
+  "description": "Sistema de gestión académica CRUDZASO - Versión con comentarios moderados",
+  "main": "index.html",
+  "scripts": {
+    "dev": "json-server --watch db.json --port 3001",
+    "start": "json-server --watch db.json --port 3001 --host 0.0.0.0",
+    "build": "echo 'Static files ready for deployment'"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.4"
+  },
+  "keywords": [
+    "crudzaso",
+    "academic",
+    "task-management",
+    "students",
+    "json-server"
+  ],
+  "author": "CRUDZASO Team",
+  "license": "MIT"
+}

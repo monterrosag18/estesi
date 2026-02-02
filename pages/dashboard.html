@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUDZASO - Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <!-- 
+        🏠 DASHBOARD PRINCIPAL - CRUDZASO v1 (HUMANIZADA)
+        
+        ¡Bienvenido al corazón de CRUDZASO! 💖
+        
+        Esta es la página más importante de toda la aplicación.
+        Aquí los usuarios ven un resumen completo de su actividad académica:
+        
+        📊 Estadísticas de rendimiento
+        📋 Lista de tareas recientes  
+        🎯 Métricas de progreso
+        ⚡ Accesos rápidos a funciones
+        
+        El diseño está basado fielmente en el Figma original,
+        con un layout limpio y funcional que prioriza la información
+        más importante para el usuario.
+        
+        ¡Es aquí donde los estudiantes toman control de su éxito académico!
+    -->
+</head>
+<body>
+    <!-- 
+        NAVEGACIÓN SUPERIOR PRINCIPAL
+        
+        Barra sticky que permanece visible mientras el usuario navega.
+        Incluye branding, navegación principal y perfil de usuario.
+    -->
+    <nav class="navbar">
+        <!-- Logo y nombre de la aplicación -->
+        <div class="nav-brand">
+            <div class="logo-icon">📚</div>
+            <span class="app-title">CRUDZASO</span>
+        </div>
+        
+        <!-- Enlaces de navegación principales -->
+        <div class="nav-links">
+            <a href="#" class="nav-link active">🏠 Dashboard</a>
+        </div>
+        
+        <!-- 
+            Información del usuario autenticado
+            
+            Muestra nombre, rol y avatar del usuario actual.
+            Al hacer click, redirige al perfil para editar información.
+        -->
+        <div class="user-profile" onclick="goToProfile()">
+            <div class="user-info">
+                <span class="user-name" id="current-user-name">Alex Morgan</span>
+                <span class="user-role" id="current-user-role">Product Designer</span>
+            </div>
+            <div class="user-avatar">👤</div>
+        </div>
+    </nav>
+    
+    <!-- 
+        CONTENIDO PRINCIPAL DEL DASHBOARD
+        
+        Layout de sidebar + área de contenido para máxima flexibilidad.
+    -->
+    <main class="main-content">
+        <!-- 
+            NAVEGACIÓN LATERAL
+            
+            Menú de acceso rápido a las principales secciones de CRUDZASO.
+            Iconos intuitivos y etiquetas claras para fácil navegación.
+        -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link active">
+                    📊 Dashboard
+                </a>
+                <a href="tasks.html" class="sidebar-link">
+                    📋 My Tasks
+                </a>
+                <a href="profile.html" class="sidebar-link">
+                    👤 Profile
+                </a>
+            </nav>
+        </aside>
+        
+        <!-- 
+            ÁREA PRINCIPAL DE CONTENIDO
+            
+            Aquí se muestra toda la información relevante del dashboard.
+        -->
+        <div class="content-area">
+            <!-- 
+                ENCABEZADO DEL TASK MANAGER
+                
+                Título, descripción y acción principal (crear nueva tarea).
+                El botón "New Task" debe ser prominente para facilitar la acción.
+            -->
+            <div class="dashboard-header">
+                <div class="section-info">
+                    <h1>Task Manager</h1>
+                    <p>Overview of your current academic performance tasks.</p>
+                </div>
+                
+                <!-- 
+                    Botón CTA principal
+                    
+                    Acción más común que los usuarios realizarán.
+                    Color azul prominente siguiendo el diseño del Figma.
+                -->
+                <button class="btn btn-primary" onclick="goToCreateTask()">
+                    ➕ New Task
+                </button>
+            </div>
+            
+            <!-- 
+                GRID DE ESTADÍSTICAS PRINCIPALES
+                
+                Métricas clave organizadas en tarjetas visuales.
+                Cada tarjeta muestra un número importante y su contexto.
+                
+                Las estadísticas se actualizan dinámicamente cuando
+                el usuario crea, edita o completa tareas.
+            -->
+            <div class="stats-grid">
+                <!-- 
+                    TOTAL DE TAREAS
+                    
+                    Número total de tareas en el sistema del usuario.
+                    Incluye pendientes, en progreso y completadas.
+                -->
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="total-tasks">24</div>
+                        <div class="stat-label">Total Tasks</div>
+                        <div class="stat-trend positive">📈 +12% from last week</div>
+                    </div>
+                </div>
+                
+                <!-- 
+                    TAREAS COMPLETADAS
+                    
+                    Indicador de productividad y progreso académico.
+                    Motivador positivo para el usuario.
+                -->
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="completed-tasks">18</div>
+                        <div class="stat-label">Completed</div>
+                        <div class="stat-trend positive">✅ On track</div>
+                    </div>
+                </div>
+                
+                <!-- 
+                    TAREAS PENDIENTES
+                    
+                    Indicador de trabajo por hacer.
+                    Destaca tareas de alta prioridad para atención inmediata.
+                -->
+                <div class="stat-card">
+                    <div class="stat-icon">⏰</div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="pending-tasks">6</div>
+                        <div class="stat-label">Pending</div>
+                        <div class="stat-trend warning">🔥 2 High Priority</div>
+                    </div>
+                </div>
+                
+                <!-- 
+                    PROGRESO GENERAL
+                    
+                    Porcentaje de completitud general.
+                    Gamificación para motivar al usuario a seguir progresando.
+                -->
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="overall-progress">75%</div>
+                        <div class="stat-label">Overall Progress</div>
+                        <div class="stat-trend positive">🎯 Keep it up!</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 
+                SECCIÓN DE TAREAS RECIENTES
+                
+                Vista rápida de las tareas más relevantes para el usuario.
+                Permite acciones rápidas sin necesidad de ir a la vista completa de tareas.
+            -->
+            <div class="recent-tasks-section">
+                <h2>Recent Tasks</h2>
+                
+                <!-- 
+                    FILTROS RÁPIDOS
+                    
+                    Permiten al usuario cambiar la vista sin recargar la página.
+                    Filtros comunes: Todas, Pendientes, Completadas.
+                -->
+                <div class="task-filters">
+                    <button class="filter-btn active" onclick="filterTasks('all')">All Tasks</button>
+                    <button class="filter-btn" onclick="filterTasks('pending')">Pending</button>
+                    <button class="filter-btn" onclick="filterTasks('completed')">Completed</button>
+                </div>
+                
+                <!-- 
+                    TABLA DE TAREAS
+                    
+                    Lista organizada con información esencial de cada tarea:
+                    - Nombre y descripción
+                    - Asignado a (en caso de trabajo en equipo)
+                    - Estado actual (Pending, In Progress, Completed)
+                    - Prioridad (Low, Medium, High)
+                    - Fecha límite
+                    - Acciones disponibles (editar, eliminar, cambiar estado)
+                    
+                    El diseño es responsive y se adapta a diferentes tamaños de pantalla.
+                -->
+                <div class="tasks-table">
+                    <!-- Encabezado de la tabla -->
+                    <div class="table-header">
+                        <div class="col-task">TASK NAME</div>
+                        <div class="col-assignee">ASSIGNEE</div>
+                        <div class="col-status">STATUS</div>
+                        <div class="col-priority">PRIORITY</div>
+                        <div class="col-due">DUE DATE</div>
+                        <div class="col-actions">ACTIONS</div>
+                    </div>
+                    
+                    <!-- 
+                        CONTENEDOR DE FILAS DE TAREAS
+                        
+                        Las tareas se cargan dinámicamente desde JavaScript.
+                        Esto permite actualizaciones en tiempo real sin recargar la página.
+                    -->
+                    <div id="tasks-container" class="table-body">
+                        <!-- Las tareas se cargarán aquí dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 
+        JAVASCRIPT PARA FUNCIONALIDAD DEL DASHBOARD
+        
+        Este script maneja:
+        - Carga inicial de datos de usuario y tareas
+        - Actualización de estadísticas en tiempo real
+        - Filtrado de tareas
+        - Navegación a otras páginas
+        - Acciones rápidas (editar, eliminar tareas)
+        - Actualización del estado de tareas
+        
+        Toda la interactividad del dashboard está aquí centralizada
+        para facilitar el mantenimiento y debugging.
+    -->
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
